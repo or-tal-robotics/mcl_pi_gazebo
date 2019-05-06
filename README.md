@@ -16,11 +16,13 @@ The following python packges are required:
 
 ## Runing
 For a simulation with 3 robots and move_base controller use:
+
 '''
 > roslaunch mcl_pi_move_base.launch
 '''
 
 For a remote control (needs 3 controllers) use:
+
 '''
 > roslaunch mcl_pi.launch
 '''
