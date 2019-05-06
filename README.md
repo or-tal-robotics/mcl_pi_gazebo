@@ -17,15 +17,16 @@ The following python packges are required:
 ## Runing
 For a simulation with 3 robots and move_base controller use:
 '''
-roslaunch mcl_pi_move_base.launch
+> roslaunch mcl_pi_move_base.launch
 '''
 
 For a remote control (needs 3 controllers) use:
 '''
-roslaunch mcl_pi.launch
+> roslaunch mcl_pi.launch
 '''
 
 ## References
 [1] Thrun S, Burgard W, Fox D. Probabilistic robotics. MIT press; 2005 Aug 19.
 
 [2] Tslil, Or, and Avishy Carmi. "Information fusion using particles intersection." 2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2018.
+ 
