@@ -18,13 +18,15 @@ The following python packges are required:
 For a simulation with 3 robots and move_base controller use:
 
 '''
-> roslaunch mcl_pi_move_base.launch
+roslaunch mcl_pi_move_base.launch
+
 '''
 
 For a remote control (needs 3 controllers) use:
 
 '''
-> roslaunch mcl_pi.launch
+roslaunch mcl_pi.launch
+
 '''
 
 ## References
