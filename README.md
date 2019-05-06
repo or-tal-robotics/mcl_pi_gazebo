@@ -1,4 +1,4 @@
-# mcl_pi_simulation
+# mcl_pi_gazebo
 Particles Intersection (PI) is a method to fuse multiple particle filter estimators, where the cross-dependencies of the observations is unknown.
 This package contain a PI implembtation for fusion the particle filters that estimates the state of a robot in a flat space.
 This package contain two main nodes:
