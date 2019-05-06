@@ -1,0 +1,28 @@
+footprint: [[0.25, 0.25], [-0.2, 0.2], [-0.2, -0.2], [0.25, -0.25]]
+footprint_padding: 0.03
+
+robot_base_frame: KoBot2/base_link
+update_frequency: 1.0
+publish_frequency: 5.0
+transform_tolerance: 0.5
+
+resolution: 0.1 # 0.05
+
+obstacle_range: 6.0
+raytrace_range: 8.0
+
+static:
+    map_topic: /map
+    subscribe_to_updates: true
+
+obstacles_laser:
+    observation_sources: laser
+    laser: {sensor_frame: KoBot2/base_laser, data_type: LaserScan, clearing: true, marking: true, topic: KoBot2/scan, inf_is_valid: true}
+
+#inflation:
+#    inflation_radius: 0.30
+
+
+#inflation_global:
+#    inflation_radius: 0.20
+

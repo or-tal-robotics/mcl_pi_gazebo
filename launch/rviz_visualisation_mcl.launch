@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="rviz_file1" default="$(find mcl_pi_simulation)/rviz/ABot_mcl.rviz" />
+  <arg name="rviz_file2" default="$(find mcl_pi_simulation)/rviz/KoBot_mcl.rviz" />
+  <arg name="rviz_file3" default="$(find mcl_pi_simulation)/rviz/KoBot2_mcl.rviz" />
+  <node pkg="rviz" type="rviz" name="rviz_ABot" args="-d $(arg rviz_file1)" output="screen"/>
+  <node pkg="rviz" type="rviz" name="rviz_KoBot" args="-d $(arg rviz_file2)" output="screen"/>
+  <node pkg="rviz" type="rviz" name="rviz_KoBot2" args="-d $(arg rviz_file3)" output="screen"/>
+  
+
+</launch>

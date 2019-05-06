@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+
+  <master auto="start"/>
+
+  <arg name="base_global_planner" default="navfn/NavfnROS"/>
+  <!--arg name="base_local_planner" default="dwa_local_planner/DWAPlannerROS"/-->
+  <arg name="base_local_planner" default="teb_local_planner/TebLocalPlannerROS"/>
+
+  
+  <!--- Run Move Base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base_ABot" output="screen" >
+    <param name="base_global_planner" value="$(arg base_global_planner)"/>
+    <param name="base_local_planner" value="$(arg base_local_planner)"/>  
+    <rosparam file="$(find mcl_pi_simulation)/move_base/config/global_costmap_params_ABot.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find mcl_pi_simulation)/move_base/config/costmap_common_params_ABot.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find mcl_pi_simulation)/move_base/config/costmap_common_params_ABot.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find mcl_pi_simulation)/move_base/config/local_costmap_params_ABot.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find mcl_pi_simulation)/move_base/config/move_base_params_ABot.yaml" command="load" />
+    <param name="local_costmap/width" value="5.0"/>
+    <param name="local_costmap/height" value="5.0"/> 
+  
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    <param name="controller_frequency" value="0.5" />
+    
+    <remap from="/ABot/ABot/scan" to="/ABot/scan"/>
+    <!--<remap from="cmd_vel" to="ABot/cmd_vel" />
+    <remap from="move_base_simple/goal" to="ABot/move_base_simple/goal" />--> 
+
+  </node>
+
+</launch>

@@ -1,0 +1,10 @@
+global_frame: laser_link_KoBot2
+rolling_window: true
+
+inflation:
+    inflation_radius: 0.01
+
+plugins:
+  - {name: obstacles_laser,           type: "costmap_2d::ObstacleLayer"}
+  - {name: inflation,                 type: "costmap_2d::InflationLayer"}
+

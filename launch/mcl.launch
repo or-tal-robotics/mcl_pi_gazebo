@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find mcl_pi_simulation)/launch/my_map.launch" />
+  <include file="$(find mcl_pi_simulation)/launch/map_server.launch"/>
+  
+  <include file="$(find mcl_pi_simulation)/launch/rviz_visualisation_mcl.launch"/>
+
+<!--#############################################################-->
+<group ns="ABot">
+<param name="tf_prefix" value="ABot" />
+
+  <!-- send ABot urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_simulation)/urdf/ABot.urdf.xacro'" />
+
+  <!-- push ABot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args="-urdf -model ABot_model -param robot_description" respawn="false" output="screen" />
+
+  <node name="joy_node_ABot" pkg="joy" type="joy_node" output="screen">
+  <param name="dev" value="/dev/input/js0" />
+  <remap from="/joy" to="/ABot/joy"/>
+  </node>
+  <node name="joystick_controler_ABot" pkg="my_robot" type="joystick_controler_new.py" output="screen">
+  <remap from="/cmd_vel" to="/ABot/cmd_vel"/>
+  <remap from="/joy" to="/ABot/joy"/>
+  </node>
+
+  <node name="mcl_ABot" pkg="mcl_pi_simulation" type="MCL.py" output="screen">
+  <param name="laser_frame" type="string" value="laser_link_ABot"/>
+  <remap from="/cmd_vel" to="/ABot/cmd_vel"/>
+  <remap from="/odom" to="/ABot/odom"/>
+  <!--<remap from="/particlecloud" to="/ABot/particlecloud"/>-->
+  <remap from="/scan" to="/ABot/scan"/>
+  <!--<remap from="/estimated_pose" to="/ABot/estimated_pose"/>-->
+  <remap from="/initialpose" to="/ABot/initialpose"/>
+  <!--<remap from="/transformed_particles" to="/ABot/transformed_particles"/>-->
+  <remap from="/ABot/static_map" to="/static_map"/>
+  <!--<remap from="/particlecloud2fuse_out" to="/ABot/particlecloud2fuse_out"/>
+  <remap from="/particlecloud2fuse_in" to="/KoBot/particlecloud2fuse_out"/>
+  <remap from="/other_robot_observation" to="/ABot/other_robot_observation"/>-->
+
+  <remap from="/particlecloud" to="/ABot_PF/particlecloud"/>
+  <remap from="/estimated_pose" to="/ABot_PF/estimated_pose"/>
+  <remap from="/MCL_estimated_pose" to="/ABot_PF/MCL_estimated_pose"/>
+  <!--<remap from="/scope" to="/ABot/scope"/>-->
+  </node>
+
+</group>
+
+<!--#############################################################-->
+<group ns="KoBot">
+<param name="tf_prefix" value="KoBot" />
+
+  <!-- send KoBot urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_simulation)/urdf/KoBot.urdf.xacro'" />
+
+  <!-- push KoBot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_KoBot" pkg="gazebo_ros" type="spawn_model" args=" -x 1 -y 1 -Y -1.6 -unpause -urdf -model KoBot_model -param robot_description" respawn="false" output="screen" />
+
+  <node name="joy_node_KoBot" pkg="joy" type="joy_node" output="screen">
+  <param name="dev" value="/dev/input/js1" />
+  <remap from="/joy" to="/KoBot/joy"/>
+  </node>
+  <node name="joystick_controler_KoBot" pkg="my_robot" type="joystick_controler_new.py" output="screen">
+  <remap from="/cmd_vel" to="/KoBot/cmd_vel"/>
+  <remap from="/joy" to="/KoBot/joy"/>
+  </node>
+
+  <node name="mcl_KoBot" pkg="mcl_pi_simulation" type="MCL.py" output="screen">
+  <param name="laser_frame" type="string" value="laser_link_KoBot"/>
+  <remap from="/cmd_vel" to="/KoBot/cmd_vel"/>
+  <remap from="/odom" to="/KoBot/odom"/>
+  <!--<remap from="/particlecloud" to="/KoBot/particlecloud"/>-->
+  <remap from="/scan" to="/KoBot/scan"/>
+  <!--<remap from="/estimated_pose" to="/KoBot/estimated_pose"/>-->
+  <remap from="/initialpose" to="/KoBot/initialpose"/>
+  <!--<remap from="/transformed_particles" to="/KoBot/transformed_particles"/>-->
+  <remap from="/KoBot/static_map" to="/static_map"/>
+  <!--<remap from="/particlecloud2fuse_out" to="/KoBot/particlecloud2fuse_out"/>
+  <remap from="/particlecloud2fuse_in" to="/ABot/particlecloud2fuse_out"/>
+  <remap from="/other_robot_observation" to="/KoBot/other_robot_observation"/>-->
+
+  <remap from="/particlecloud" to="/KoBot_PF/particlecloud"/>
+  <remap from="/estimated_pose" to="/KoBot_PF/estimated_pose"/>
+  <remap from="/MCL_estimated_pose" to="/KoBot_PF/MCL_estimated_pose"/>
+  <!--<remap from="/scope" to="/KoBot/scope"/>-->
+  </node>
+
+</group>
+
+<!--#############################################################-->
+<group ns="KoBot2">
+<param name="tf_prefix" value="KoBot2" />
+
+  <!-- send KoBot2 urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_simulation)/urdf/KoBot.urdf.xacro'" />
+
+  <!-- push KoBot2_description to factory and spawn robot in gazebo -->
+  <node name="spawn_KoBot2" pkg="gazebo_ros" type="spawn_model" args=" -x 1 -y -1 -Y 1.6  -unpause -urdf -model KoBot2_model -param robot_description" respawn="false" output="screen" />
+
+  <node name="joy_node_KoBot2" pkg="joy" type="joy_node" output="screen">
+  <param name="dev" value="/dev/input/js2" />
+  <remap from="/joy" to="/KoBot2/joy"/>
+  </node>
+  <node name="joystick_controler_KoBot2" pkg="my_robot" type="joystick_controler_new.py" output="screen">
+  <remap from="/cmd_vel" to="/KoBot2/cmd_vel"/>
+  <remap from="/joy" to="/KoBot2/joy"/>
+  </node>
+
+  <node name="mcl_KoBot2" pkg="mcl_pi_simulation" type="MCL.py" output="screen">
+  <param name="laser_frame" type="string" value="laser_link_KoBot2"/>
+  <remap from="/cmd_vel" to="/KoBot2/cmd_vel"/>
+  <remap from="/odom" to="/KoBot2/odom"/>
+  <!--<remap from="/particlecloud" to="/KoBot2/particlecloud"/>-->
+  <remap from="/scan" to="/KoBot2/scan"/>
+  <!--<remap from="/estimated_pose" to="/KoBot2/estimated_pose"/>-->
+  <remap from="/initialpose" to="/KoBot2/initialpose"/>
+  <!--<remap from="/transformed_particles" to="/KoBot2/transformed_particles"/>-->
+  <remap from="/KoBot2/static_map" to="/static_map"/>
+  <!--<remap from="/particlecloud2fuse_out" to="/KoBot2/particlecloud2fuse_out"/>
+  <remap from="/particlecloud2fuse_in" to="/ABot/particlecloud2fuse_out"/>
+  <remap from="/other_robot_observation" to="/KoBot2/other_robot_observation"/>-->
+
+  <remap from="/particlecloud" to="/KoBot2_PF/particlecloud"/>
+  <remap from="/estimated_pose" to="/KoBot2_PF/estimated_pose"/>
+  <remap from="/MCL_estimated_pose" to="/KoBot2_PF/MCL_estimated_pose"/>
+  <!--<remap from="/scope" to="/KoBot2/scope"/>-->
+  </node>
+
+</group>
+
+</launch>

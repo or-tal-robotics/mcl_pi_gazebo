@@ -1,0 +1,11 @@
+global_frame: map
+rolling_window: false
+track_unknown_space: true
+
+inflation_global:
+    inflation_radius: 0.15
+
+plugins:
+#  - {name: obstacles_laser,           type: "costmap_2d::ObstacleLayer"}
+  - {name: static,                  type: "costmap_2d::StaticLayer"}
+  - {name: inflation_global,               type: "costmap_2d::InflationLayer"}

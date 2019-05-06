@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find mcl_pi_simulation)/maps/map.yaml" />
+
+  <node pkg="tf" type="static_transform_publisher" name="world_map_static_broadcaster" args="0 0 0 0 0 0 1 world /map 100" />
+
+</launch>
