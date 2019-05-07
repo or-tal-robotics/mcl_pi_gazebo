@@ -7,7 +7,7 @@ This package contain two main nodes:
 
 ## Dependencies
 The following python packges are required:
-* python 3.*
+* python 2.*
 * numpy
 * matplotlib
 * sklearn
