@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <launch>
 
-  <include file="$(find mcl_pi_simulation)/launch/my_map.launch" />
-  <include file="$(find mcl_pi_simulation)/launch/map_server.launch"/>
+  <include file="$(find mcl_pi_gazebo)/launch/my_map.launch" />
+  <include file="$(find mcl_pi_gazebo)/launch/map_server.launch"/>
   
-  <include file="$(find mcl_pi_simulation)/launch/rviz_visualisation_mcl.launch"/>
+  <include file="$(find mcl_pi_gazebo)/launch/rviz_visualisation_mcl.launch"/>
 
 <!--#############################################################-->
 <group ns="ABot">
 <param name="tf_prefix" value="ABot" />
 
   <!-- send ABot urdf to param server -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_simulation)/urdf/ABot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/ABot.urdf.xacro'" />
 
   <!-- push ABot_description to factory and spawn robot in gazebo -->
   <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args="-urdf -model ABot_model -param robot_description" respawn="false" output="screen" />
@@ -20,12 +20,12 @@
   <param name="dev" value="/dev/input/js0" />
   <remap from="/joy" to="/ABot/joy"/>
   </node>
-  <node name="joystick_controler_ABot" pkg="mcl_pi_simulation" type="joystick_controler_new.py" output="screen">
+  <node name="joystick_controler_ABot" pkg="mcl_pi_gazebo" type="joystick_controler_new.py" output="screen">
   <remap from="/cmd_vel" to="/ABot/cmd_vel"/>
   <remap from="/joy" to="/ABot/joy"/>
   </node>
 
-  <node name="mcl_ABot" pkg="mcl_pi_simulation" type="MCL.py" output="screen">
+  <node name="mcl_ABot" pkg="mcl_pi_gazebo" type="MCL.py" output="screen">
   <param name="laser_frame" type="string" value="laser_link_ABot"/>
   <remap from="/cmd_vel" to="/ABot/cmd_vel"/>
   <remap from="/odom" to="/ABot/odom"/>
@@ -52,7 +52,7 @@
 <param name="tf_prefix" value="KoBot" />
 
   <!-- send KoBot urdf to param server -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_simulation)/urdf/KoBot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/KoBot.urdf.xacro'" />
 
   <!-- push KoBot_description to factory and spawn robot in gazebo -->
   <node name="spawn_KoBot" pkg="gazebo_ros" type="spawn_model" args=" -x 1 -y 1 -Y -1.6 -unpause -urdf -model KoBot_model -param robot_description" respawn="false" output="screen" />
@@ -61,12 +61,12 @@
   <param name="dev" value="/dev/input/js1" />
   <remap from="/joy" to="/KoBot/joy"/>
   </node>
-  <node name="joystick_controler_KoBot" pkg="mcl_pi_simulation" type="joystick_controler_new.py" output="screen">
+  <node name="joystick_controler_KoBot" pkg="mcl_pi_gazebo" type="joystick_controler_new.py" output="screen">
   <remap from="/cmd_vel" to="/KoBot/cmd_vel"/>
   <remap from="/joy" to="/KoBot/joy"/>
   </node>
 
-  <node name="mcl_KoBot" pkg="mcl_pi_simulation" type="MCL.py" output="screen">
+  <node name="mcl_KoBot" pkg="mcl_pi_gazebo" type="MCL.py" output="screen">
   <param name="laser_frame" type="string" value="laser_link_KoBot"/>
   <remap from="/cmd_vel" to="/KoBot/cmd_vel"/>
   <remap from="/odom" to="/KoBot/odom"/>
@@ -93,7 +93,7 @@
 <param name="tf_prefix" value="KoBot2" />
 
   <!-- send KoBot2 urdf to param server -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_simulation)/urdf/KoBot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/KoBot.urdf.xacro'" />
 
   <!-- push KoBot2_description to factory and spawn robot in gazebo -->
   <node name="spawn_KoBot2" pkg="gazebo_ros" type="spawn_model" args=" -x 1 -y -1 -Y 1.6  -unpause -urdf -model KoBot2_model -param robot_description" respawn="false" output="screen" />
@@ -102,12 +102,12 @@
   <param name="dev" value="/dev/input/js2" />
   <remap from="/joy" to="/KoBot2/joy"/>
   </node>
-  <node name="joystick_controler_KoBot2" pkg="mcl_pi_simulation" type="joystick_controler_new.py" output="screen">
+  <node name="joystick_controler_KoBot2" pkg="mcl_pi_gazebo" type="joystick_controler_new.py" output="screen">
   <remap from="/cmd_vel" to="/KoBot2/cmd_vel"/>
   <remap from="/joy" to="/KoBot2/joy"/>
   </node>
 
-  <node name="mcl_KoBot2" pkg="mcl_pi_simulation" type="MCL.py" output="screen">
+  <node name="mcl_KoBot2" pkg="mcl_pi_gazebo" type="MCL.py" output="screen">
   <param name="laser_frame" type="string" value="laser_link_KoBot2"/>
   <remap from="/cmd_vel" to="/KoBot2/cmd_vel"/>
   <remap from="/odom" to="/KoBot2/odom"/>

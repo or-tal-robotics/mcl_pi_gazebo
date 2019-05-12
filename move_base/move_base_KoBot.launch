@@ -12,11 +12,11 @@
   <node pkg="move_base" type="move_base" respawn="false" name="move_base_KoBot" output="screen" >
     <param name="base_global_planner" value="$(arg base_global_planner)"/>
     <param name="base_local_planner" value="$(arg base_local_planner)"/>  
-    <rosparam file="$(find mcl_pi_simulation)/move_base/config/global_costmap_params_KoBot.yaml" command="load" ns="global_costmap"/>
-    <rosparam file="$(find mcl_pi_simulation)/move_base/config/costmap_common_params_KoBot.yaml" command="load" ns="global_costmap"/>
-    <rosparam file="$(find mcl_pi_simulation)/move_base/config/costmap_common_params_KoBot.yaml" command="load" ns="local_costmap"/>
-    <rosparam file="$(find mcl_pi_simulation)/move_base/config/local_costmap_params_KoBot.yaml" command="load" ns="local_costmap"/>
-    <rosparam file="$(find mcl_pi_simulation)/move_base/config/move_base_params_KoBot.yaml" command="load" />
+    <rosparam file="$(find mcl_pi_gazebo)/move_base/config/global_costmap_params_KoBot.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find mcl_pi_gazebo)/move_base/config/costmap_common_params_KoBot.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find mcl_pi_gazebo)/move_base/config/costmap_common_params_KoBot.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find mcl_pi_gazebo)/move_base/config/local_costmap_params_KoBot.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find mcl_pi_gazebo)/move_base/config/move_base_params_KoBot.yaml" command="load" />
     <param name="local_costmap/width" value="5.0"/>
     <param name="local_costmap/height" value="5.0"/> 
   

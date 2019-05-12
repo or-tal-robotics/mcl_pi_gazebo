@@ -2,8 +2,8 @@
 
 <launch>
 
-<include file="$(find mcl_pi_simulation)/launch/ABot.launch" />
+<include file="$(find mcl_pi_gazebo)/launch/ABot.launch" />
 
-<include file="$(find mcl_pi_simulation)/launch/joystick.launch" />
+<include file="$(find mcl_pi_gazebo)/launch/joystick.launch" />
 
 </launch>

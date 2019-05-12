@@ -4,6 +4,6 @@
 
 <node pkg="joy" name="joy_node" type="joy_node" output="screen" /> 
 
-<node pkg="mcl_pi_simulation" name="joy" type="joystick_controler_new.py" output="screen" />
+<node pkg="mcl_pi_gazebo" name="joy" type="joystick_controler_new.py" output="screen" />
 
 </launch>

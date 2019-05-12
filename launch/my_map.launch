@@ -2,8 +2,8 @@
 
 <launch>
 
-<include file="$(find mcl_pi_simulation)/launch/empty_world.launch" >
-  <arg name="world_name" value="$(find mcl_pi_simulation)/maps/model.world"/>
+<include file="$(find mcl_pi_gazebo)/launch/empty_world.launch" >
+  <arg name="world_name" value="$(find mcl_pi_gazebo)/maps/model.world"/>
 </include>
 
 </launch>
