@@ -286,7 +286,7 @@
   </plugin>
 </gazebo>
 
-  <xacro:include filename="$(find mcl_pi_simulation)/urdf/hokuyo.xacro"/>
+  <xacro:include filename="$(find mcl_pi_gazebo)/urdf/hokuyo.xacro"/>
   <xacro:laser name="base_laser" parent="base_link" xyz="0.225 0 0.2" rpy="0 0 0" meshes="package://gazebo_plugins/test/multi_robot_scenario/meshes/laser"/>
 
 </robot>
