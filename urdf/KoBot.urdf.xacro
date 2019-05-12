@@ -89,7 +89,7 @@
     <parent link="base_link"/>
     <child link="right_wheel"/>
     <axis xyz="0 1 0"/>
-    <origin xyz="0.1 -0.15 0.075"/>
+    <origin xyz="0.1 0.15 0.075"/>
   </joint>
 
   <transmission name="T_base_link_right_wheel">
@@ -131,7 +131,7 @@
     <parent link="base_link"/>
     <child link="left_wheel"/>
     <axis xyz="0 1 0"/>
-    <origin xyz="0.1 0.15 0.075"/>
+    <origin xyz="0.1 -0.15 0.075"/>
   </joint>
 
   <transmission name="T_base_link_left_wheel">
@@ -298,7 +298,7 @@
         <topicName> & <frameName> should look like that:
         <topicName>/scan</topicName>
         <frameName>/base_laser</frameName> -->
-  <xacro:include filename="$(find mcl_pi_simulation)/urdf/hokuyo.xacro"/>
+  <xacro:include filename="$(find mcl_pi_gazebo)/urdf/hokuyo.xacro"/>
   <xacro:laser name="base_laser" parent="base_link" xyz="0.225 0 0.2" rpy="0 0 0" meshes="package://gazebo_plugins/test/multi_robot_scenario/meshes/laser"/>
 
 </robot>

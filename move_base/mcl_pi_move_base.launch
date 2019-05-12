@@ -36,7 +36,7 @@
   </node>-->
 
   <node name="mcl_pi_ABot" pkg="mcl_pi_gazebo" type="MCL_PI.py" output="screen">
-  <param name="laser_frame" type="string" value="laser_link_ABot"/>
+  <param name="laser_frame" type="string" value="ABot/laser_link_ABot"/>
   <remap from="/cmd_vel" to="/ABot/cmd_vel"/>
   <remap from="/odom" to="/ABot/odom"/>
   <remap from="/particlecloud" to="/ABot/particlecloud"/>
@@ -84,7 +84,7 @@
   </node>-->
 
   <node name="mcl_pi_KoBot" pkg="mcl_pi_gazebo" type="MCL_PI.py" output="screen">
-  <param name="laser_frame" type="string" value="laser_link_KoBot"/>
+  <param name="laser_frame" type="string" value="KoBot/laser_link_KoBot"/>
   <remap from="/cmd_vel" to="/KoBot/cmd_vel"/>
   <remap from="/odom" to="/KoBot/odom"/>
   <remap from="/particlecloud" to="/KoBot/particlecloud"/>
@@ -132,7 +132,7 @@
   <include file="$(find mcl_pi_gazebo)/move_base/move_base_KoBot2.launch"/>
 
   <node name="mcl_pi_KoBot2" pkg="mcl_pi_gazebo" type="MCL_PI.py" output="screen">
-  <param name="laser_frame" type="string" value="laser_link_KoBot2"/>
+  <param name="laser_frame" type="string" value="KoBot2/laser_link_KoBot2"/>
   <remap from="/cmd_vel" to="/KoBot2/cmd_vel"/>
   <remap from="/odom" to="/KoBot2/odom"/>
   <remap from="/particlecloud" to="/KoBot2/particlecloud"/>

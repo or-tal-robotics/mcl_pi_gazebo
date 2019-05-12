@@ -1,4 +1,4 @@
-global_frame: map
+global_frame: /map
 rolling_window: false
 track_unknown_space: true
 
