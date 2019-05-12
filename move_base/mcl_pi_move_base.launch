@@ -30,7 +30,7 @@
   <param name="dev" value="/dev/input/js0" />
   <remap from="/joy" to="/ABot/joy"/>
   </node>
-  <node name="joystick_controler_ABot" pkg="my_robot" type="joystick_controler_new.py" output="screen">
+  <node name="joystick_controler_ABot" pkg="mcl_pi_simulation" type="joystick_controler_new.py" output="screen">
   <remap from="/cmd_vel" to="/ABot/cmd_vel"/>
   <remap from="/joy" to="/ABot/joy"/>
   </node>-->
@@ -78,7 +78,7 @@
   <param name="dev" value="/dev/input/js1" />
   <remap from="/joy" to="/KoBot/joy"/>
   </node>
-  <node name="joystick_controler_KoBot" pkg="my_robot" type="joystick_controler_new.py" output="screen">
+  <node name="joystick_controler_KoBot" pkg="mcl_pi_simulation" type="joystick_controler_new.py" output="screen">
   <remap from="/cmd_vel" to="/KoBot/cmd_vel"/>
   <remap from="/joy" to="/KoBot/joy"/>
   </node>-->
@@ -124,7 +124,7 @@
   <param name="dev" value="/dev/input/js2" />
   <remap from="/joy" to="/KoBot2/joy"/>
   </node>
-  <node name="joystick_controler_KoBot2" pkg="my_robot" type="joystick_controler_new.py" output="screen">
+  <node name="joystick_controler_KoBot2" pkg="mcl_pi_simulation" type="joystick_controler_new.py" output="screen">
   <remap from="/cmd_vel" to="/KoBot2/cmd_vel"/>
   <remap from="/joy" to="/KoBot2/joy"/>
   </node>-->
