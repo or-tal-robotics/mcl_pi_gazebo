@@ -1,6 +1,6 @@
 TebLocalPlannerROS:
 
- odom_topic: laser_link_ABot
+ odom_topic: /ABot/MCL_estimated_pose
  map_frame: /map
     
  # Trajectory
