@@ -1,6 +1,6 @@
 TebLocalPlannerROS:
 
- odom_topic: ABot/odom
+ odom_topic: ABot/laser_link_ABot
  map_frame: /map
     
  # Trajectory
