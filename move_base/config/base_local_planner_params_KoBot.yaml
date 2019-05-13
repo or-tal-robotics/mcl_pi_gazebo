@@ -1,6 +1,6 @@
 TebLocalPlannerROS:
 
- odom_topic: KoBot/odom
+ odom_topic: laser_link_KoBot
  map_frame: /map
     
  # Trajectory
