@@ -1,7 +1,7 @@
 footprint: [[0.25, 0.25], [-0.2, 0.2], [-0.2, -0.2], [0.25, -0.25]]
 footprint_padding: 0.03
 
-robot_base_frame: ABot/base_link
+robot_base_frame: laser_link_ABot
 update_frequency: 1.0
 publish_frequency: 5.0
 transform_tolerance: 0.5
@@ -17,7 +17,7 @@ static:
 
 obstacles_laser:
     observation_sources: laser
-    laser: {sensor_frame: ABot/base_laser, data_type: LaserScan, clearing: true, marking: true, topic: ABot/scan, inf_is_valid: true}
+    laser: {sensor_frame: laser_link_ABot, data_type: LaserScan, clearing: true, marking: true, topic: ABot/scan, inf_is_valid: true}
 
 #inflation:
 #    inflation_radius: 0.30
