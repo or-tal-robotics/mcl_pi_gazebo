@@ -17,8 +17,8 @@
     <rosparam file="$(find mcl_pi_gazebo)/move_base/config/costmap_common_params_ABot.yaml" command="load" ns="local_costmap"/>
     <rosparam file="$(find mcl_pi_gazebo)/move_base/config/local_costmap_params_ABot.yaml" command="load" ns="local_costmap"/>
     <rosparam file="$(find mcl_pi_gazebo)/move_base/config/move_base_params_ABot.yaml" command="load" />
-    <param name="local_costmap/width" value="5.0"/>
-    <param name="local_costmap/height" value="5.0"/> 
+    <param name="local_costmap/width" value="4.5"/>
+    <param name="local_costmap/height" value="4.5"/> 
   
     <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
     <param name="controller_frequency" value="0.5" />

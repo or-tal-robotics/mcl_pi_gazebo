@@ -17,14 +17,14 @@
     <rosparam file="$(find mcl_pi_gazebo)/move_base/config/costmap_common_params_KoBot2.yaml" command="load" ns="local_costmap"/>
     <rosparam file="$(find mcl_pi_gazebo)/move_base/config/local_costmap_params_KoBot2.yaml" command="load" ns="local_costmap"/>
     <rosparam file="$(find mcl_pi_gazebo)/move_base/config/move_base_params_KoBot2.yaml" command="load" />
-    <param name="local_costmap/width" value="5.0"/>
-    <param name="local_costmap/height" value="5.0"/> 
+    <param name="local_costmap/width" value="4.5"/>
+    <param name="local_costmap/height" value="4.5"/> 
   
     <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
     <param name="controller_frequency" value="0.5" />
 
 
-    <remap from="/KoBot2/Kobot2/scan" to="/KoBot2/scan"/>
+    <remap from="/KoBot2/KoBot2/scan" to="/KoBot2/scan"/>
     <!--<remap from="cmd_vel" to="KoBot2/cmd_vel" />
     <remap from="move_base_simple/goal" to="KoBot2/move_base_simple/goal" />--> 
 
