@@ -274,7 +274,7 @@
     <updateRate>10</updateRate>
     <leftJoint>base_link_left_wheel</leftJoint>
     <rightJoint>base_link_right_wheel</rightJoint>
-    <wheelSeparation>0.35</wheelSeparation>
+    <wheelSeparation>0.3</wheelSeparation>
     <wheelDiameter>0.15</wheelDiameter>
     <torque>1.41</torque>
     <commandTopic>cmd_vel</commandTopic>

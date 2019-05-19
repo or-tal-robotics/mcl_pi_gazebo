@@ -14,22 +14,15 @@ TebLocalPlannerROS:
     
  # Robot
          
- max_vel_x: 0.4
- max_vel_x_backwards: 0.2
- max_vel_theta: 0.3
- acc_lim_x: 0.3
- acc_lim_theta: 0.5
+ max_vel_x: 0.2
+ max_vel_x_backwards: 0.05
+ max_vel_theta: 0.1
+ acc_lim_x: 0.1
+ acc_lim_theta: 0.1
  min_turning_radius: 0.0
  footprint_model: # types: "point", "circular", "two_circles", "line", "polygon"
-   type: "point"
-   radius: 0.2 # for type "circular"
-   line_start: [-0.3, 0.0] # for type "line"
-   line_end: [0.3, 0.0] # for type "line"
-   front_offset: 0.2 # for type "two_circles"
-   front_radius: 0.2 # for type "two_circles"
-   rear_offset: 0.2 # for type "two_circles"
-   rear_radius: 0.2 # for type "two_circles"
-   vertices: [[0.25, 0.25], [-0.2, 0.2], [-0.2, -0.2], [0.25, -0.25]] #[ [0.25, -0.05], [0.18, -0.05], [0.18, -0.18], [-0.19, -0.18], [-0.25, 0], [-0.19, 0.18], [0.18, 0.18], [0.18, 0.05], [0.25, 0.05] ] # for type "polygon"
+   type: "polygon"
+   vertices: [[0.225, 0.225], [-0.225, 0.225], [-0.225, -0.225], [0.225, -0.225], [0.325,0]] #[ [0.25, -0.05], [0.18, -0.05], [0.18, -0.18], [-0.19, -0.18], [-0.25, 0], [-0.19, 0.18], [0.18, 0.18], [0.18, 0.05], [0.25, 0.05] ] # for type "polygon"
 
  # GoalTolerance
     

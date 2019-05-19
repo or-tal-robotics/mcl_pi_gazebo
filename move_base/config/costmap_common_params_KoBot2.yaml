@@ -1,15 +1,15 @@
-footprint: [[0.25, 0.25], [-0.2, 0.2], [-0.2, -0.2], [0.25, -0.25]]
-footprint_padding: 0.03
+footprint: [[0.2, 0.2], [-0.2, 0.2], [-0.2, -0.2], [0.2, -0.2], [0.3,0]]
+footprint_padding: 0.025
 
 robot_base_frame: laser_link_KoBot2
-update_frequency: 1.0
+update_frequency: 5.0
 publish_frequency: 5.0
 transform_tolerance: 0.5
 
 resolution: 0.1 # 0.05
 
-obstacle_range: 6.0
-raytrace_range: 8.0
+obstacle_range: 4.5
+raytrace_range: 5.0
 
 static:
     map_topic: /map
@@ -19,10 +19,10 @@ obstacles_laser:
     observation_sources: laser
     laser: {sensor_frame: laser_link_KoBot2, data_type: LaserScan, clearing: true, marking: true, topic: KoBot2/scan, inf_is_valid: true}
 
-#inflation:
-#    inflation_radius: 0.30
+inflation:
+    inflation_radius: 0.2
 
 
-#inflation_global:
-#    inflation_radius: 0.20
+inflation_global:
+    inflation_radius: 0.3
 

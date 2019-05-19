@@ -22,7 +22,7 @@
   </node>
 
   <!-- push ABot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args="-urdf -model /ABot_model -param /ABot/robot_description" respawn="false" output="screen" />
+  <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args=" -x -5 -y -2 -urdf -model /ABot_model -param /ABot/robot_description" respawn="false" output="screen" />
 
   <include file="$(find mcl_pi_gazebo)/move_base/move_base_ABot.launch"/>
 
@@ -70,7 +70,7 @@
   </node>
 
   <!-- push KoBot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_KoBot" pkg="gazebo_ros" type="spawn_model" args=" -x 1 -y 1 -Y -1.6 -unpause -urdf -model KoBot_model -param /KoBot/robot_description" respawn="false" output="screen" />
+  <node name="spawn_KoBot" pkg="gazebo_ros" type="spawn_model" args=" -x 2 -y 4 -Y -1.6 -unpause -urdf -model KoBot_model -param /KoBot/robot_description" respawn="false" output="screen" />
 
   <include file="$(find mcl_pi_gazebo)/move_base/move_base_KoBot.launch"/>
 
@@ -111,14 +111,15 @@
 <param name="tf_prefix" value="KoBot2" />
 <node pkg="tf" type="static_transform_publisher" name="map_odom_static_broadcaster" args="0 0 0 0 0 0 1 map /KoBot2/odom 100" />
 
+<!--<node pkg="tf" type="static_transform_publisher" name="laser_base_KoBot2_static_broadcaster" args="-0.2 0 0 0 0 0 1 laser_KoBot2 base_KoBot2 100" />-->
+
   <!-- send KoBot urdf to param server -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/KoBot.urdf.xacro'" />
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="KoBot2_st_pub" >
   </node>
 
-  <!-- push KoBot2_description to factory and spawn robot in gazebo -->
-  <node name="spawn_KoBot2" pkg="gazebo_ros" type="spawn_model" args=" -x 1 -y -1 -Y 1.6  -unpause -urdf -model KoBot2_model -param /KoBot2/robot_description" respawn="false" output="screen" />
+  <node name="spawn_KoBot2" pkg="gazebo_ros" type="spawn_model" args=" -x 5 -y -3 -Y 1.6  -unpause -urdf -model KoBot2_model -param /KoBot2/robot_description" respawn="false" output="screen" />
 
   <!--<node name="joy_node_KoBot2" pkg="joy" type="joy_node" output="screen">
   <param name="dev" value="/dev/input/js2" />

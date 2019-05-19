@@ -1,8 +1,13 @@
-global_frame: laser_link_KoBot
+global_frame: map
+robot_base_frame: laser_link_KoBot
 rolling_window: true
+update_frequency: 5.0
+publish_frequency: 2.0
+static_map: true
+resolution: 0.1
 
-inflation:
-    inflation_radius: 0.01
+#inflation:
+#    inflation_radius: 0.2
 
 plugins:
   - {name: obstacles_laser,           type: "costmap_2d::ObstacleLayer"}

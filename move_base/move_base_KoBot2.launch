@@ -4,7 +4,7 @@
   <master auto="start"/>
 
   <arg name="base_global_planner" default="navfn/NavfnROS"/>
-  <!--arg name="base_local_planner" default="dwa_local_planner/DWAPlannerROS"/-->
+  <!--<arg name="base_local_planner" default="dwa_local_planner/DWAPlannerROS"/>-->
   <arg name="base_local_planner" default="teb_local_planner/TebLocalPlannerROS"/>
 
   
@@ -17,11 +17,11 @@
     <rosparam file="$(find mcl_pi_gazebo)/move_base/config/costmap_common_params_KoBot2.yaml" command="load" ns="local_costmap"/>
     <rosparam file="$(find mcl_pi_gazebo)/move_base/config/local_costmap_params_KoBot2.yaml" command="load" ns="local_costmap"/>
     <rosparam file="$(find mcl_pi_gazebo)/move_base/config/move_base_params_KoBot2.yaml" command="load" />
-    <param name="local_costmap/width" value="4.5"/>
-    <param name="local_costmap/height" value="4.5"/> 
+    <param name="local_costmap/width" value="6"/>
+    <param name="local_costmap/height" value="6"/> 
   
     <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
-    <param name="controller_frequency" value="0.5" />
+    <param name="controller_frequency" value="5" />
 
 
     <remap from="/KoBot2/KoBot2/scan" to="/KoBot2/scan"/>
