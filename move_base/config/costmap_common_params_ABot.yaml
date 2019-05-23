@@ -1,12 +1,13 @@
-footprint: [[0.2, 0.2], [-0.2, 0.2], [-0.2, -0.2], [0.2, -0.2], [0.3,0]]
-footprint_padding: 0.025
+footprint: [[0.25, 0.25], [-0.25, 0.25], [-0.25, -0.25], [0.25, -0.25]]
+footprint_padding: 0.1
 
-robot_base_frame: laser_link_ABot
-update_frequency: 5.0
+
+robot_base_frame: base_ABot
+update_frequency: 1.0
 publish_frequency: 5.0
 transform_tolerance: 0.5
 
-resolution: 0.1 # 0.05
+resolution: 0.05 # 0.05
 
 obstacle_range: 4.5
 raytrace_range: 5.0
@@ -20,7 +21,7 @@ obstacles_laser:
     laser: {sensor_frame: laser_link_ABot, data_type: LaserScan, clearing: true, marking: true, topic: ABot/scan, inf_is_valid: true}
 
 inflation:
-    inflation_radius: 0.2
+    inflation_radius: 0.35
 
 
 inflation_global:

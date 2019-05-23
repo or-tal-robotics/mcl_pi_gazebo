@@ -1,15 +1,15 @@
 TebLocalPlannerROS:
 
- odom_topic: /KoBot/MCL_estimated_pose
+ odom_topic: /KoBot/odom
  map_frame: /map
     
  # Trajectory
   
  teb_autosize: True
- dt_ref: 0.3
- dt_hysteresis: 0.1
+ dt_ref: 0.4
+ dt_hysteresis: 0.03
  global_plan_overwrite_orientation: True
- max_global_plan_lookahead_dist: 3.0
+ max_global_plan_lookahead_dist: 0.2
  feasibility_check_no_poses: 5
     
  # Robot
@@ -22,23 +22,23 @@ TebLocalPlannerROS:
  min_turning_radius: 0.0
  footprint_model: # types: "point", "circular", "two_circles", "line", "polygon"
    type: "polygon"
-   vertices: [[0.225, 0.225], [-0.225, 0.225], [-0.225, -0.225], [0.225, -0.225], [0.325,0]] #[ [0.25, -0.05], [0.18, -0.05], [0.18, -0.18], [-0.19, -0.18], [-0.25, 0], [-0.19, 0.18], [0.18, 0.18], [0.18, 0.05], [0.25, 0.05] ] # for type "polygon"
+   vertices: [[0.25, 0.25], [-0.25, 0.25], [-0.25, -0.25], [0.25, -0.25]] # for type "polygon"
 
  # GoalTolerance
     
- xy_goal_tolerance: 0.2
+ xy_goal_tolerance: 0.1
  yaw_goal_tolerance: 0.1
  free_goal_vel: False
     
  # Obstacles
     
- min_obstacle_dist: 0.4
+ min_obstacle_dist: 0.1
  include_costmap_obstacles: True
  costmap_obstacles_behind_robot_dist: 0.3
  obstacle_poses_affected: 30
  costmap_converter_plugin: ""
  costmap_converter_spin_thread: True
- costmap_converter_rate: 5
+ costmap_converter_rate: 1
 
  # Optimization
     
@@ -71,4 +71,4 @@ TebLocalPlannerROS:
  h_signature_threshold: 0.1
  obstacle_keypoint_offset: 0.1
  obstacle_heading_threshold: 0.45
- visualize_hc_graph: False
+visualize_hc_graph: False

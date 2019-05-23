@@ -1,10 +1,11 @@
 global_frame: map
-robot_base_frame: laser_link_ABot
-rolling_window: true
+robot_base_frame: base_ABot
 update_frequency: 5.0
-publish_frequency: 2.0
+publish_frequency: 1.0
 static_map: true
-resolution: 0.1
+rolling_window: true
+resolution: 0.025
+allow_unknown: true
 
 #inflation:
 #    inflation_radius: 0.2
