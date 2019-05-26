@@ -1,6 +1,5 @@
-footprint: [[0.25, 0.25], [-0.25, 0.25], [-0.25, -0.25], [0.25, -0.25]]
-footprint_padding: 0.1
-
+footprint: [[0.2, 0.2], [-0.2, 0.2], [-0.2, -0.2], [0.2, -0.2], [0.3, 0]]
+footprint_padding: 0.026
 
 robot_base_frame: base_KoBot2
 update_frequency: 1.0
@@ -21,7 +20,7 @@ obstacles_laser:
     laser: {sensor_frame: laser_link_KoBot2, data_type: LaserScan, clearing: true, marking: true, topic: KoBot2/scan, inf_is_valid: true}
 
 inflation:
-    inflation_radius: 0.35
+    inflation_radius: 0.342
 
 
 inflation_global:
