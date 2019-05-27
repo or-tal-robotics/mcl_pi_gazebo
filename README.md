@@ -4,7 +4,7 @@ This package contain a PI implembtation for fusion the particle filters that est
 This package contain two main nodes:
 * particle_filter.py - an implemantation of a particle filter for robot localization using [1].
 * particlesintersection.py - an implemantation of a particle intersection for cooperative localization using [2].
-
+[![Watch the video](https://img.youtube.com/vi/7vj-Otb_4H8/default.jpg)](https://youtu.be/7vj-Otb_4H8)
 ## Dependencies
 The following python packges are required:
 * python 2.*
