@@ -6,28 +6,36 @@
   
   <include file="$(find mcl_pi_gazebo)/launch/rviz_visualisation_mcl.launch"/>
 
+
+
+
+
 <!--#############################################################-->
 <group ns="ABot">
 <param name="tf_prefix" value="/ABot" />
 <node pkg="tf" type="static_transform_publisher" name="map_odom_static_broadcaster" args="0 0 0 0 0 0 1 map /ABot/odom 100" />
 
+<node pkg="tf" type="static_transform_publisher" name="laser_base_ABot_static_broadcaster" args="-0.225 0 0 0 0 0 1 laser_link_ABot base_ABot 100" />
+
   <!-- send ABot urdf to param server -->
   <param name="/ABot/robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/ABot.urdf.xacro'" />
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="ABot_st_pub" >
   </node>
 
   <!-- push ABot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args="-urdf -model /ABot_model -param /ABot/robot_description" respawn="false" output="screen" />
+  <node name="spawn_ABot" pkg="gazebo_ros" type="spawn_model" args=" -x -5 -y -2 -unpause -urdf -model /ABot_model -param /ABot/robot_description" respawn="false" output="screen" />
 
-  <node name="joy_node_ABot" pkg="joy" type="joy_node" output="screen">
+  <include file="$(find mcl_pi_gazebo)/move_base/move_base_ABot.launch"/>
+
+  <!--<node name="joy_node_ABot" pkg="joy" type="joy_node" output="screen">
   <param name="dev" value="/dev/input/js0" />
   <remap from="/joy" to="/ABot/joy"/>
   </node>
   <node name="joystick_controler_ABot" pkg="mcl_pi_gazebo" type="joystick_controler_new.py" output="screen">
   <remap from="/cmd_vel" to="/ABot/cmd_vel"/>
   <remap from="/joy" to="/ABot/joy"/>
-  </node>
+  </node>-->
 
   <node name="mcl_pi_ABot" pkg="mcl_pi_gazebo" type="MCL_PI.py" output="screen">
   <param name="laser_frame" type="string" value="laser_link_ABot"/>
@@ -54,22 +62,30 @@
 
 <!--#############################################################-->
 <group ns="KoBot">
-<param name="tf_prefix" value="KoBot" />
+<param name="tf_prefix" value="/KoBot" />
+<node pkg="tf" type="static_transform_publisher" name="map_odom_static_broadcaster" args="0 0 0 0 0 0 1 map /KoBot/odom 100" />
+
+<node pkg="tf" type="static_transform_publisher" name="laser_base_KoBot_static_broadcaster" args="-0.225 0 0 0 0 0 1 laser_link_KoBot base_KoBot 100" />
 
   <!-- send KoBot urdf to param server -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/KoBot.urdf.xacro'" />
 
-  <!-- push KoBot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_KoBot" pkg="gazebo_ros" type="spawn_model" args=" -x 1 -y 1 -Y -1.6 -unpause -urdf -model KoBot_model -param robot_description" respawn="false" output="screen" />
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="KoBot_st_pub" >
+  </node>
 
-  <node name="joy_node_KoBot" pkg="joy" type="joy_node" output="screen">
+  <!-- push KoBot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_KoBot" pkg="gazebo_ros" type="spawn_model" args=" -x 2 -y 4 -Y -1.6 -unpause -urdf -model KoBot_model -param /KoBot/robot_description" respawn="false" output="screen" />
+
+  <include file="$(find mcl_pi_gazebo)/move_base/move_base_KoBot.launch"/>
+
+  <!--<node name="joy_node_KoBot" pkg="joy" type="joy_node" output="screen">
   <param name="dev" value="/dev/input/js1" />
   <remap from="/joy" to="/KoBot/joy"/>
   </node>
   <node name="joystick_controler_KoBot" pkg="mcl_pi_gazebo" type="joystick_controler_new.py" output="screen">
   <remap from="/cmd_vel" to="/KoBot/cmd_vel"/>
   <remap from="/joy" to="/KoBot/joy"/>
-  </node>
+  </node>-->
 
   <node name="mcl_pi_KoBot" pkg="mcl_pi_gazebo" type="MCL_PI.py" output="screen">
   <param name="laser_frame" type="string" value="laser_link_KoBot"/>
@@ -97,21 +113,28 @@
 <!--#############################################################-->
 <group ns="KoBot2">
 <param name="tf_prefix" value="KoBot2" />
+<node pkg="tf" type="static_transform_publisher" name="map_odom_static_broadcaster" args="0 0 0 0 0 0 1 map /KoBot2/odom 100" />
+
+<node pkg="tf" type="static_transform_publisher" name="laser_base_KoBot2_static_broadcaster" args="-0.225 0 0 0 0 0 1 laser_link_KoBot2 base_KoBot2 100" />
 
   <!-- send KoBot urdf to param server -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/KoBot.urdf.xacro'" />
 
-  <!-- push KoBot2_description to factory and spawn robot in gazebo -->
-  <node name="spawn_KoBot2" pkg="gazebo_ros" type="spawn_model" args=" -x 1 -y -1 -Y 1.6  -unpause -urdf -model KoBot2_model -param robot_description" respawn="false" output="screen" />
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="KoBot2_st_pub" >
+  </node>
 
-  <node name="joy_node_KoBot2" pkg="joy" type="joy_node" output="screen">
+  <node name="spawn_KoBot2" pkg="gazebo_ros" type="spawn_model" args=" -x 5 -y -3 -Y 1.6 -unpause -urdf -model KoBot2_model -param /KoBot2/robot_description" respawn="false" output="screen" />
+
+  <!--<node name="joy_node_KoBot2" pkg="joy" type="joy_node" output="screen">
   <param name="dev" value="/dev/input/js2" />
   <remap from="/joy" to="/KoBot2/joy"/>
   </node>
   <node name="joystick_controler_KoBot2" pkg="mcl_pi_gazebo" type="joystick_controler_new.py" output="screen">
   <remap from="/cmd_vel" to="/KoBot2/cmd_vel"/>
   <remap from="/joy" to="/KoBot2/joy"/>
-  </node>
+  </node>-->
+
+  <include file="$(find mcl_pi_gazebo)/move_base/move_base_KoBot2.launch"/>
 
   <node name="mcl_pi_KoBot2" pkg="mcl_pi_gazebo" type="MCL_PI.py" output="screen">
   <param name="laser_frame" type="string" value="laser_link_KoBot2"/>

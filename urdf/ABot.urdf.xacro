@@ -271,7 +271,7 @@
 <gazebo>
   <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
     <alwaysOn>true</alwaysOn>
-    <updateRate>10</updateRate>
+    <updateRate>5</updateRate>
     <leftJoint>base_link_left_wheel</leftJoint>
     <rightJoint>base_link_right_wheel</rightJoint>
     <wheelSeparation>0.3</wheelSeparation>
@@ -284,9 +284,13 @@
     <publishWheelJointState>true</publishWheelJointState>
     <enable_odom_tf>true</enable_odom_tf>
   </plugin>
+
 </gazebo>
 
-  <xacro:include filename="$(find mcl_pi_gazebo)/urdf/hokuyo.xacro"/>
+<xacro:include filename="$(find mcl_pi_gazebo)/urdf/3Dcamera.xacro"/>
+
+
+	
   <xacro:laser name="base_laser" parent="base_link" xyz="0.225 0 0.2" rpy="0 0 0" meshes="package://gazebo_plugins/test/multi_robot_scenario/meshes/laser"/>
 
 </robot>
