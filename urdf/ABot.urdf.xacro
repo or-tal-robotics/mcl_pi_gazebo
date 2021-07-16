@@ -283,6 +283,7 @@
     <robotBaseFrame>base_link</robotBaseFrame>
     <publishWheelJointState>true</publishWheelJointState>
     <enable_odom_tf>true</enable_odom_tf>
+    <legacyMode>false</legacyMode>
   </plugin>
 </gazebo>
 

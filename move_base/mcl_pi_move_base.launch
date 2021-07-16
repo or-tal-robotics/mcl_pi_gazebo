@@ -12,13 +12,13 @@
 
 <!--#############################################################-->
 <group ns="ABot">
-<param name="tf_prefix" value="/ABot" />
+<!--param name="tf_prefix" value="/ABot" /-->
 <node pkg="tf" type="static_transform_publisher" name="map_odom_static_broadcaster" args="0 0 0 0 0 0 1 map /ABot/odom 100" />
 
 <node pkg="tf" type="static_transform_publisher" name="laser_base_ABot_static_broadcaster" args="-0.225 0 0 0 0 0 1 laser_link_ABot base_ABot 100" />
 
   <!-- send ABot urdf to param server -->
-  <param name="/ABot/robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/ABot.urdf.xacro'" />
+  <param name="/ABot/robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/ABot.urdf.xacro' --inorder" />
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="ABot_st_pub" >
   </node>
@@ -62,13 +62,13 @@
 
 <!--#############################################################-->
 <group ns="KoBot">
-<param name="tf_prefix" value="/KoBot" />
+<!--param name="tf_prefix" value="/KoBot" /-->
 <node pkg="tf" type="static_transform_publisher" name="map_odom_static_broadcaster" args="0 0 0 0 0 0 1 map /KoBot/odom 100" />
 
 <node pkg="tf" type="static_transform_publisher" name="laser_base_KoBot_static_broadcaster" args="-0.225 0 0 0 0 0 1 laser_link_KoBot base_KoBot 100" />
 
   <!-- send KoBot urdf to param server -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/KoBot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/KoBot.urdf.xacro' --inorder" />
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="KoBot_st_pub" >
   </node>
@@ -112,13 +112,13 @@
 
 <!--#############################################################-->
 <group ns="KoBot2">
-<param name="tf_prefix" value="KoBot2" />
+<!--param name="tf_prefix" value="KoBot2" /-->
 <node pkg="tf" type="static_transform_publisher" name="map_odom_static_broadcaster" args="0 0 0 0 0 0 1 map /KoBot2/odom 100" />
 
 <node pkg="tf" type="static_transform_publisher" name="laser_base_KoBot2_static_broadcaster" args="-0.225 0 0 0 0 0 1 laser_link_KoBot2 base_KoBot2 100" />
 
   <!-- send KoBot urdf to param server -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/KoBot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mcl_pi_gazebo)/urdf/KoBot.urdf.xacro' --inorder" />
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="KoBot2_st_pub" >
   </node>

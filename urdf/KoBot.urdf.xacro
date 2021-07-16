@@ -282,6 +282,7 @@
     <odometryFrame>odom</odometryFrame>
     <robotBaseFrame>base_link</robotBaseFrame>
     <publishWheelJointState>true</publishWheelJointState>
+    <legacyMode>false</legacyMode>
   </plugin>
 </gazebo>
 
